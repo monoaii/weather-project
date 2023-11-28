@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <div class="row">
+          
+          <div class="col-6">
+
+            <form>
+              <div class="mb-1.5 search-bar">
+                <input
+                  type="text"
+                  placeholder="Search City"
+                  class="form-control"
+                />
+                <input 
+                  type="submit" 
+                  value="Search" 
+                  class="btn btn-primary" />
+              </div>
+            </form>
+            <!-- finish search bar -->
+
+            <div class="current-weather-card">
+              <img src="image/cloudy-icon.png" 
+                    alt="cloudy icon"
+                    class="current-weather-icon">
+              <div class="current-weather-card-body">
+                <h1 id="current-city">Seattle</h1>
+                <h4 id="current-date-and-time" class="current-time">Saturday, October 4 | 20:09</h4>
+                <h2 id="current-temperature">57&deg;F</h2>
+                <h3 id="current-condition-des">Mostly Cloudy</h3>
+                <h4 id="feels-like-temp">Feels Like 50&deg;F</h4>
+              </div>
+            </div>
+   
+          </div>  <!-- close for first column -->
+         
+          <div class="col-6">
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/cloudy-icon.png" 
+                        alt="cloudy icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Sunday 
+                </div>
+                <div class="col-4 degree-text">
+                  64&deg; | 54&deg;
+                </div>
+              </div>
+            </div>  
+            <!-- end of day 1 forecast -->
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/raining-icon.png" 
+                        alt="raining icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Monday 
+                </div>
+                <div class="col-4 degree-text">
+                  64&deg; | 54&deg;
+                </div>
+              </div>
+            </div>  
+            <!-- end of day 2 forecast --> 
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/cloudy-icon.png"
+                        alt="cloudy icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Tuesday 
+                </div>
+                <div class="col-4 degree-text">
+                  64&deg; | 54&deg;
+                </div>
+              </div>
+            </div>  
+            <!-- end of day 3 forecast -->
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/cloudy-icon.png"
+                        alt="cloudy icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Wednesday 
+                </div>
+                <div class="col-4 degree-text">
+                  61&deg; | 51&deg;
+                </div>
+              </div>
+            </div> 
+            <!-- end of day 4 forecast -->         
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/thunderstrom-icon.png"
+                        alt="thunderstrom icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Thursday 
+                </div>
+                <div class="col-4 degree-text">
+                  53&deg; | 45&deg;
+                </div>
+              </div>
+            </div> 
+            <!-- end of day 5 forecast --> 
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/sunny-icon.png"
+                        alt="sunny icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Friday
+                </div>
+                <div class="col-4 degree-text">
+                  61&deg; | 51&deg;
+                </div>
+              </div>
+            </div> 
+            <!-- end of day 6 forecast -->
+            <div class="card mb-3 forecast">
+              <div class="row g-1">
+                <div class="col-4 weather-image">
+                  <img src="image/sunny-icon.png"
+                        alt="sunny icon"
+                        class="weather-icon">
+                </div>
+                <div class="col-4 card-text">
+                  Saturday
+                </div>
+                <div class="col-4 degree-text">
+                  61&deg; | 51&deg;
+                </div>
+              </div>
+            </div> 
+            <!-- end of day 7 forecast -->      
+       
+        </div>
+
+        <footer>
+          <div class="coder">This project was Coded by Snow C.</div>
+      <!-- <div class="contact-detail">
+        <span class="ig"
+          >Follow me on Instagram:
+          <a href="https://www.instagram.com/snowberrii" target="_blank"
+            >@snowberrii</a
+          >
+        </span>
+      </div> -->
+        </footer>
+
+      </div>
+    </div>
+
+  <script src="src/index.js"></script>
+  
+  </body>
+</html>

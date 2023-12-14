@@ -53,7 +53,7 @@ body {
 }
 
 .current-weather-icon {
-  max-width: 200px;
+  width: 150px;
 }
 
 .current-weather-card-body {

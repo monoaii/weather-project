@@ -35,25 +35,27 @@ let currentMinute = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
 
 currentTime.innerHTML = `${currentDay}, ${currentMonth} ${currentDate} | ${currentHour}:${currentMinute}`;
 
-//change temperature to realtime
-function showCurrentTemp(response) {
-  let currentTemperature = Math.round(response.data.temperature.current);
-  let h2 = document.querySelector("#current-temperature");
-  h2.innerHTML = `${currentTemperature}&deg;F`;
-}
-
-//change Feels like temperature to realtime
-function showFeelsLikeTemp(response) {
-  let feelsLikeTemp = Math.round(response.data.temperature.feels_like);
+//update weather data in realtime
+function updateWeatherData(response) {
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = response.data.temperature.current;
+  let cityElement = document.querySelector("#current-city");
+  let conditionDescriptionElement = document.querySelector(
+    "#current-condition-des"
+  );
   let feelsLike = document.querySelector("#feels-like-temp");
-  feelsLike.innerHTML = `Feels Like ${feelsLikeTemp}&deg;F`;
+
+  cityElement.innerHTML = response.data.city;
+  conditionDescriptionElement.innerHTML = response.data.condition.description;
+  temperatureElement.innerHTML = Math.round(temperature);
+  feelsLikeTemp = `${Math.round(response.data.temperature.feels_like)}&deg;F`;
 }
 
-//change weather condition description to realtime
-function showConditiondes(response) {
-  let conditionDescription = response.data.condition.description;
-  let conditionDes = document.querySelector("#current-condition-des");
-  conditionDes.innerHTML = `${conditionDescription}`;
+//make api call and update temperature interface
+function searchCity(city) {
+  let apiKey = "7feob78d78cbdf431afd487b07c045tb";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(updateWeatherData);
 }
 
 //change city to search city
@@ -61,16 +63,11 @@ function search(event) {
   event.preventDefault();
   let cityInput = document.querySelector(".form-control");
   let changeCity = document.querySelector("#current-city");
-  let city = cityInput.value;
-
-  let apiKey = "7feob78d78cbdf431afd487b07c045tb";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-  changeCity.innerHTML = `${city}`;
-
-  axios.get(apiUrl).then(showCurrentTemp);
-  axios.get(apiUrl).then(showFeelsLikeTemp);
-  axios.get(apiUrl).then(showConditiondes);
+  changeCity.innerHTML = cityInput.value;
+  searchCity(cityInput.value);
 }
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", search);
+
+searchCity("Seattle");

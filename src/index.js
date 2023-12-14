@@ -63,7 +63,7 @@ function searchCity(city) {
 //change city to search city
 function search(event) {
   event.preventDefault();
-  let cityInput = document.querySelector(".form-control");
+  let cityInput = document.querySelector("#search-form-input");
   let changeCity = document.querySelector("#current-city");
   changeCity.innerHTML = cityInput.value;
   searchCity(cityInput.value);

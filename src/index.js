@@ -47,8 +47,10 @@ function updateWeatherData(response) {
 
   cityElement.innerHTML = response.data.city;
   conditionDescriptionElement.innerHTML = response.data.condition.description;
-  temperatureElement.innerHTML = Math.round(temperature);
-  feelsLikeTemp = `${Math.round(response.data.temperature.feels_like)}&deg;F`;
+  temperatureElement.innerHTML = `${Math.round(temperature)}°F`;
+  feelsLikeTemp = `Feels Like${Math.round(
+    response.data.temperature.feels_like
+  )}°F`;
 }
 
 //make api call and update temperature interface
